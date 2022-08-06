@@ -1,0 +1,21 @@
+<div>
+    <table class="table">
+        <thead class="table-header">
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Data de criação</th>
+        </thead>
+        <tbody class="table-body">
+            <tr *ngFor="let person of personList; let i index">
+                <td>{{ person.id }}</td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.sex }}</td>
+                <td>{{ person.createDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

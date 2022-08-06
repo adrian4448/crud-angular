@@ -1,0 +1,23 @@
+<div class="form-container">
+    <form class="form" #form="ngForm">
+        <div class="input-label">
+            <label> Nome </label>
+            <input type="text" name="name" placeholder="Nome" ngModel required>
+        </div>
+        <div class="input-label">
+            <label> Idade </label>
+            <input type="number" name="idade" placeholder="Idade" ngModel required>
+        </div>
+        <div class="input-label"> 
+            <div class="input-radio">
+                <label>Masculino:</label> <input type="radio" name="sex" value="MASCULINO" ngModel>
+                <label>Feminino:</label> <input type="radio" name="sex" value="FEMININO" ngModel>
+            </div>
+        </div>
+    </form>
+    <div class="buttons-container">
+        <button class="button-primary" (click)="emitRegister(form)">Registrar</button>
+        <button class="button-secondary" (click)="clear(form)">Limpar</button>
+    </div>
+</div>
+
