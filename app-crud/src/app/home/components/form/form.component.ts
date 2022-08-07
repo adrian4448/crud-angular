@@ -15,7 +15,7 @@ export class FormComponent implements OnInit, DoCheck {
 
   @Output() alter = new EventEmitter();
 
-  @Input() personSelected: Person = { name: '', age: 0, sex: Sex.MASCULINO };
+  @Input() personSelected: Person = { name: '', age: 1, sex: Sex.MASCULINO };
 
   public peopleForm: FormGroup = this.formBuilder.group({
     name: [this.personSelected.name],
@@ -51,12 +51,13 @@ export class FormComponent implements OnInit, DoCheck {
     } else {
       this.personService.alterPerson(person).subscribe(res => this.alter.emit(res));
     }
+    this.clear();
   }
 
   clear() {
     this.peopleForm = this.formBuilder.group({
       name: [''],
-      age: [0],
+      age: [1],
       sex: ['MASCULINO']
     });
 
