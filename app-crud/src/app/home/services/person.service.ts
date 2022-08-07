@@ -14,4 +14,16 @@ export class PersonService {
     return this.http.get<Person[]>(this.url);
   }
 
+  public registerPerson(person: Person): Observable<Person> {
+    return this.http.post<Person>(this.url, person);
+  }
+
+  public deletePerson(personId: number): Observable<Person> {
+    return this.http.delete<Person>(`${this.url}/${personId}`);
+  }
+
+  public alterPerson(person: Person): Observable<Person> {
+    return this.http.put<Person>(`${this.url}/${person.id}`, person);
+  }
+
 }

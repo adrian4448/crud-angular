@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { Person } from '../../model/person.model';
-import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-table',
@@ -9,14 +9,25 @@ import { PersonService } from '../../services/person.service';
 })
 export class TableComponent implements OnInit {
 
-  constructor(private personService: PersonService) { }
+  constructor() { }
 
-  public personList: Person[] = [];
+  public trashIcon = faTrashCan;
+  public penIcon = faPen;
 
-  ngOnInit(): void {
-    this.personService.findAllPersons().subscribe((response: Person[]) => {
-      this.personList = response;
-    });
+  @Input() public values: Person[] = [];
+
+  @Output() public delete = new EventEmitter();
+
+  @Output() public select = new EventEmitter();
+
+  ngOnInit(): void { }
+
+  emitDelete(personId: number | undefined) {
+    this.delete.emit(personId);
+  }
+
+  emitSelect(person: Person) {
+    this.select.emit(person);
   }
 
 }

@@ -1,23 +1,23 @@
 <div class="form-container">
-    <form class="form" #form="ngForm">
+    <form class="form" [formGroup]="peopleForm">
         <div class="input-label">
             <label> Nome </label>
-            <input type="text" name="name" placeholder="Nome" ngModel required>
+            <input type="text" placeholder="Nome" formControlName="name">
         </div>
         <div class="input-label">
             <label> Idade </label>
-            <input type="number" name="idade" placeholder="Idade" ngModel required>
+            <input type="number" placeholder="Idade" formControlName="age">
         </div>
         <div class="input-label"> 
             <div class="input-radio">
-                <label>Masculino:</label> <input type="radio" name="sex" value="MASCULINO" ngModel>
-                <label>Feminino:</label> <input type="radio" name="sex" value="FEMININO" ngModel>
+                <label>Masculino:</label> <input type="radio" name="sex" value="MASCULINO" formControlName="sex">
+                <label>Feminino:</label> <input type="radio" name="sex" value="FEMININO" formControlName="sex">
             </div>
         </div>
     </form>
     <div class="buttons-container">
-        <button class="button-primary" (click)="emitRegister(form)">Registrar</button>
-        <button class="button-secondary" (click)="clear(form)">Limpar</button>
+        <button class="button-primary" (click)="emitRegister()">{{ !personHasSelected ? 'Registrar' : 'Alterar' }}</button>
+        <button class="button-secondary" (click)="clear()">Limpar</button>
     </div>
 </div>
 

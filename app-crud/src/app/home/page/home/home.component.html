@@ -4,10 +4,10 @@
 
 <div class="container flex">
     <div class="container">
-        <app-form (cancelRegister)="closeForm()"></app-form>
+        <app-form (register)="registerPerson($event)" (alter)="alterPerson($event)" [personSelected]="personSelected"></app-form>
     </div>
     <div class="container">
-        <app-table></app-table>
+        <app-table [values]="persons" (delete)="deletePerson($event)" (select)="selectPerson($event)"></app-table>
     </div>
 
 </div>

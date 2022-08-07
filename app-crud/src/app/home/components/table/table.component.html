@@ -6,14 +6,17 @@
             <th>Idade</th>
             <th>Sexo</th>
             <th>Data de criação</th>
+            <th colspan="2"></th>
         </thead>
         <tbody class="table-body">
-            <tr *ngFor="let person of personList; let i index">
+            <tr *ngFor="let person of values; let i index">
                 <td>{{ person.id }}</td>
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
                 <td>{{ person.sex }}</td>
                 <td>{{ person.createDate }}</td>
+                <td (click)="emitDelete(person.id)"> <fa-icon style="color: red;" [icon]="trashIcon"></fa-icon> </td>
+                <td (click)="emitSelect(person)"> <fa-icon style="color: blue;" [icon]="penIcon"></fa-icon> </td>
             </tr>
         </tbody>
     </table>
