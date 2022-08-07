@@ -61,6 +61,7 @@ export class FormComponent implements OnInit, DoCheck {
     });
 
     this.personSelected = { name: '', age: 0, sex: Sex.MASCULINO };
+    this.personHasSelected = false;
   }
 
 }
